@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Calculator</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: cursive;
+        }
+        body{
+            background-color: #39393A;
+        }
+        #fact{
+            font-size: 400%;
+            color: #E6E6E6;
+        }
+        .heading{
+            margin-left: 5%;
+            margin-top: 8%;
+        }
+        .body{
+            border: 2px solid #E6E6E6;
+            display: inline-block;
+            width: 25%;
+            padding: 2%;
+            margin-left: 5%;
+            margin-top: 2%;
+            box-shadow: 5px 5px 5px #E6E6E6;
+        }
+        input{
+            padding: 4%;
+            width: 80%;
+            font-size: larger;
+        }
+        button{
+            font-size: larger;
+            background-color: #E6E6E6;
+            padding: 2%;
+            font-weight: bold;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+        #c{
+            color: #E6E6E6;
+            margin-left: 5%;
+            margin-top: 2%;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1 id="fact">Factorial <br>
+        Calculator</h1>
+    </div>
+    <div class="body">
+        <input type="number" id="a">
+        <br>
+        <br>
+        <button id="d">Submit</button>
+    </div>
+    <div class="answer">
+        <p id="c"></p>
+    </div>
+    <script>
+            
+        document.getElementById("d").addEventListener("click", function factorial() {
+            let b = document.getElementById("a").value;
+            let fact = 1;
+            for (let i=1; i<= b; i++) {
+                fact = fact*i;
+            }
+            document.getElementById("c").innerHTML = "Factorial of the number is : " + fact;
+        factorial()
+        })
+    </script>
+</body>
+</html>
