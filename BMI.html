@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="BMI_Image.png" type="image/x-icon">
+    <title>BMI Calculator</title>
+    <style>
+        *{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-style: italic;
+            min-height: 100%;
+        }
+        body{
+            background-image: linear-gradient(darkblue , #2342b5);
+        }
+        h1{
+            color: #FAC748;
+            font-size: 400%;
+            text-shadow: 2px 2px 2px white;
+            line-height: 150%;
+        }
+        .heading{
+            margin-left: 2%;
+            margin-top: 4%;
+        }
+        input{
+            font-size: larger;
+            padding: 0.5%;
+            margin-right: 1%;
+            box-shadow: 2px 2px 2px #F9E9EC;
+        }
+        .input{
+            margin-left: 2%;
+            margin-top: 3%;
+        }
+        button{
+            font-size: x-large;
+            padding: 0.75%;
+            font-weight: bold;
+            background-color: white;
+            box-shadow: 2px 2px 2px #F9E9EC;
+            cursor: pointer;
+        }
+        .button{
+            margin-left: 2%;
+            margin-top: 2%;
+        }
+        p{
+            color: white;
+        }
+        .ans{
+            margin-left: 2%;
+            margin-top: 2%;
+        }
+        footer{
+            position: fixed;
+            top: 90%;
+            left: 40%;
+        }
+        #note{
+            font-size: large;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>BMI <br> Calculator</h1>
+    </div>
+    <div class="input">
+        <input type="number" id="weight" placeholder="Enter weight (in kg)">
+        <input type="number" id="height" placeholder="Enter height (in cm)">
+    </div>
+    <div class="button">
+        <button id="clik">Submit</button>
+    </div>
+    <div class="ans">
+        <p id="answer"></p>
+    </div>
+    <footer>
+        <p id="note">Refresh the window once you got the value</p>
+    </footer>
+    <script>
+        
+        document.getElementById('clik').addEventListener("click",function yes(){
+            let weight = document.getElementById("weight").value;
+            let height = document.getElementById("height").value/100;
+            let height_2 = height*height;
+            let calculation = (weight/height_2);
+            let display = calculation.toFixed(2);
+            document.getElementById("answer").style.fontSize="200%";
+            document.getElementById("answer").style.transition="2s";
+
+            if (display<=18.5){
+                document.getElementById("answer").innerHTML="Underweight:" + display;
+            }
+            else if(display==18.5 || display<=24.9){
+                document.getElementById("answer").innerHTML="Normal:" + display;
+            }
+            else if (display==25 || display<=29.9){
+                document.getElementById("answer").innerHTML="Overweight:" + display;
+            }
+            else if (display==30 || display<=34.9){
+                document.getElementById("answer").innerHTML="Obese:" + display;
+            }
+            else if (display >=35){
+                document.getElementById("answer").innerHTML="Extremely Obese:" + display;
+            }
+            else{
+                 document.getElementById("answer").innerHTML="Please enter the values!"
+            }
+            yes()
+        })
+        
+    </script>
+</body>
+</html>
